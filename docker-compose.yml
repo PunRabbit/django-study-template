@@ -1,0 +1,99 @@
+version: "3.8"
+
+# You have to consider using replicas, using container_name by unique error
+# 8000 : Main Service that Export by Nginx
+# 8001 : Flower Client
+
+services:
+  sample-nginx:
+    container_name: "sample-nginx"
+    image: "sample-nginx:latest"
+    build:
+      context: ./resource/nginx
+      dockerfile: Dockerfile
+    ports:
+      - "8000:80"
+    environment:
+      - "TZ=Asia/Seoul"
+    depends_on:
+      - sample-server
+    networks:
+      - sample-network
+
+  sample-server:
+#    container_name: "sample-server"
+    image: "sample-server:latest"
+    build:
+      context: .
+      dockerfile: ./resource/server/Dockerfile
+      args:
+        COMMAND: "/wait-for-it.sh sample-mariadb:3306 --timeout=60 --strict -- gunicorn app.setting.asgi:application -k uvicorn.workers.UvicornWorker --bind 0.0.0.0:8000 --workers 3"
+    networks:
+      - sample-network
+    deploy:
+      replicas: 1
+    volumes:
+      - './app/logs:/src/app/logs'
+    depends_on:
+      - sample-mariadb
+      - sample-mongo
+      - sample-redis
+
+  sample-celery-server:
+    image: "sample-celery-server:latest"
+    build:
+      context: .
+      dockerfile: ./resource/server/Dockerfile
+      args:
+        COMMAND: "celery -A app.util.celery.celery_app worker --loglevel=info"
+    networks:
+      - sample-network
+    deploy:
+      replicas: 2
+    depends_on:
+      - sample-server
+
+  sample-flower-server:
+    container_name: "sample-flower-server"
+    image: "sample-flower-server:latest"
+    build:
+      context: .
+      dockerfile: ./resource/server/Dockerfile
+      args:
+        COMMAND: "celery -A app.util.celery.celery_app flower --port=7777"
+    networks:
+      - sample-network
+    ports:
+      - "8001:7777"
+    deploy:
+      replicas: 1
+    depends_on:
+      - sample-celery-server
+
+  sample-redis:
+    container_name: "sample-redis"
+    image: "redis:latest"
+    networks:
+      - sample-network
+
+  sample-mongo:
+    container_name: "sample-mongo"
+    image: "mongo:latest"
+    networks:
+      - sample-network
+
+  sample-mariadb:
+    container_name: "sample-mariadb"
+    image: "mariadb:latest"
+    environment:
+      - MYSQL_ROOT_PASSWORD=sample
+    ports:
+      - "8002:3306"
+    networks:
+      - sample-network
+
+networks:
+  sample-network:
+    name: 'sample-network'
+    driver: bridge
+    attachable: true
