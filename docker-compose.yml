@@ -1,0 +1,89 @@
+version: "3.8"
+
+# You have to consider using replicas, using container_name by unique error
+# 8000 : Main Service that Export by Nginx
+# 8001 : Flower Client
+
+services:
+  toss-nginx:
+    container_name: "toss-nginx"
+    image: "toss-nginx:latest"
+    build:
+      context: ./resource/nginx
+      dockerfile: Dockerfile
+    ports:
+      - "8000:80"
+    depends_on:
+      - toss-server
+    networks:
+      - toss-network
+
+  toss-server:
+    container_name: "toss-server"
+    image: "toss-server:latest"
+    build:
+      context: .
+      dockerfile: ./resource/server/Dockerfile
+    networks:
+      - toss-network
+    deploy:
+      replicas: 1
+    depends_on:
+      - toss-mariadb
+      - toss-mongo
+      - toss-redis
+
+  toss-celery-server:
+    image: "toss-celery-server:latest"
+    build:
+      context: .
+      dockerfile: ./resource/celery/CeleryDockerfile
+    networks:
+      - toss-network
+    deploy:
+      replicas: 2
+    depends_on:
+      - toss-server
+
+  toss-flower-server:
+    container_name: "toss-flower-server"
+    image: "toss-flower-server:latest"
+    build:
+      context: .
+      dockerfile: ./resource/celery/FlowerDockerfile
+    networks:
+      - toss-network
+    ports:
+      - "8001:7777"
+    deploy:
+      replicas: 1
+    depends_on:
+      - toss-celery-server
+
+  toss-redis:
+    container_name: "toss-redis"
+    image: "redis:latest"
+    networks:
+      - toss-network
+
+  toss-mongo:
+    container_name: "toss-mongo"
+    image: "mongo:latest"
+    networks:
+      - toss-network
+
+  toss-mariadb:
+    container_name: "toss-mariadb"
+    image: "mariadb:latest"
+    environment:
+      - MYSQL_ROOT_PASSWORD=toss
+    ports:
+      - "8002:3306"
+    networks:
+      - toss-network
+
+networks:
+  toss-network:
+    name: 'toss-network'
+    driver: bridge
+    attachable: true
