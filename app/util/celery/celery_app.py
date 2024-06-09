@@ -11,3 +11,12 @@ celery_app.config_from_object(
     "django.conf:settings", namespace="CELERY"
 )
 celery_app.autodiscover_tasks()
+
+# celery_app.conf.beat_schedule = {
+#     'add-every-30-seconds': {
+#         'task': 'myapp.tasks.add',
+#         'schedule': 30.0,
+#         'args': (16, 16),
+#     },
+# }
+

@@ -24,6 +24,8 @@ services:
     build:
       context: .
       dockerfile: ./resource/server/Dockerfile
+      args:
+        COMMAND: "wait-for-it.sh toss-mariadb:3306 --timeout=60 --strict -- python manager.py runserver"
     networks:
       - toss-network
     deploy:
@@ -37,7 +39,9 @@ services:
     image: "toss-celery-server:latest"
     build:
       context: .
-      dockerfile: ./resource/celery/CeleryDockerfile
+      dockerfile: ./resource/server/Dockerfile
+      args:
+        COMMAND: "celery -A app.util.celery.celery_app worker --loglevel=info"
     networks:
       - toss-network
     deploy:
@@ -50,7 +54,9 @@ services:
     image: "toss-flower-server:latest"
     build:
       context: .
-      dockerfile: ./resource/celery/FlowerDockerfile
+      dockerfile: ./resource/server/Dockerfile
+      args:
+        COMMAND: "celery -A app.util.celery.celery_app flower --port=7777"
     networks:
       - toss-network
     ports:

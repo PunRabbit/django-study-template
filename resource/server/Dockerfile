@@ -27,4 +27,9 @@ COPY --from=builder /usr/local/bin /usr/local/bin
 COPY --from=builder /src /src
 COPY --from=builder /wait-for-it.sh /wait-for-it.sh
 
-CMD ["/wait-for-it.sh", "toss-mariadb:3306", "--timeout=60", "--strict", "--", "python", "manager.py", "runserver"]
+ARG COMMAND
+ENV COMMAND $COMMAND
+
+ENTRYPOINT ["sh", "-c", "${COMMAND}"]
+
+#CMD ["/wait-for-it.sh", "toss-mariadb:3306", "--timeout=60", "--strict", "--", "python", "manager.py", "runserver"]

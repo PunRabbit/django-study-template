@@ -1,7 +1,7 @@
 from rest_framework import viewsets, mixins
 
 from app.model.snippet import Snippet as SnippetModel
-from app.serializer.snippet import Snippet as SnippetSerializer
+from app.serializer.snippet import SnippetModelSerializer as SnippetSerializer
 
 
 class UserListViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
