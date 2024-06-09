@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     "django_celery_results",
     "django_celery_beat",
     "app.api",
-    "app.celery",
     "app.core",
     "app.model",
     "app.serializer",
