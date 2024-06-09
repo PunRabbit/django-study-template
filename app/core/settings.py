@@ -46,7 +46,9 @@ INSTALLED_APPS = [
     "app.core",
     "app.model",
     "app.serializer",
-    "app.util"
+    "app.util",
+    "app.container",
+    "app.test"
 ]
 
 MIDDLEWARE = [
