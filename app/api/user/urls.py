@@ -4,4 +4,4 @@ from app.api.user.view import UserListViewSet
 
 
 user_router: DefaultRouter = DefaultRouter()
-user_router.register(r'user', UserListViewSet)
+user_router.register(prefix=r"user", viewset=UserListViewSet)
