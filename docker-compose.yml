@@ -27,7 +27,7 @@ services:
       context: .
       dockerfile: ./resource/server/Dockerfile
       args:
-        COMMAND: "/wait-for-it.sh toss-mariadb:3306 --timeout=60 --strict -- python manage.py runserver 0.0.0.0:8000 --noreload"
+        COMMAND: "/wait-for-it.sh toss-mariadb:3306 --timeout=60 --strict -- gunicorn app.core.wsgi:application --bind 0:8000"
     networks:
       - toss-network
     deploy:
