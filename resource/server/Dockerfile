@@ -5,6 +5,11 @@ ENV TZ Asia/Seoul
 
 WORKDIR /src
 
+RUN apt-get update && apt-get install -y \
+    gcc \
+    libmariadb-dev \
+    && apt-get clean
+
 COPY ./req.txt .
 RUN pip install --no-cache-dir -r req.txt
 
@@ -20,6 +25,11 @@ FROM python:3.10-slim
 
 ENV TZ Asia/Seoul
 ENV PYTHONUNBUFFERED 1
+
+RUN apt-get update && apt-get install -y \
+    gcc \
+    libmariadb-dev \
+    && apt-get clean
 
 WORKDIR /src
 

@@ -21,13 +21,13 @@ services:
       - toss-network
 
   toss-server:
-    container_name: "toss-server"
+#    container_name: "toss-server"
     image: "toss-server:latest"
     build:
       context: .
       dockerfile: ./resource/server/Dockerfile
       args:
-        COMMAND: "/wait-for-it.sh toss-mariadb:3306 --timeout=60 --strict -- gunicorn app.core.wsgi:application --bind 0:8000"
+        COMMAND: "/wait-for-it.sh toss-mariadb:3306 --timeout=60 --strict -- gunicorn app.setting.asgi:application -k uvicorn.workers.UvicornWorker --bind 0.0.0.0:8000 --workers 3"
     networks:
       - toss-network
     deploy:

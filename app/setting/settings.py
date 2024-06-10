@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
+
 import os
 from pathlib import Path
 
@@ -42,13 +43,12 @@ INSTALLED_APPS = [
     "rest_framework",
     "django_celery_results",
     "django_celery_beat",
-    "app.api",
-    "app.core",
-    "app.model",
-    "app.serializer",
-    "app.util",
+    "app.apps.user",
     "app.container",
-    "app.test"
+    "app.core",
+    "app.logs",
+    "app.setting",
+    "app.util",
 ]
 
 MIDDLEWARE = [
@@ -59,7 +59,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "app.util.middleware.logging_middleware.LoggingMiddleware"
+    "app.util.middleware.logging_middleware.LoggingMiddleware",
 ]
 
 ROOT_URLCONF = CONSTANT.SETTING_MAIN_URL_FILE_PATH
@@ -80,17 +80,14 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "app.core.wsgi.application"
+WSGI_APPLICATION = "app.setting.wsgi.application"
 
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
-    }
+    "default": CONSTANT.DATABASE_CONFIG.MARIADB_CONFIG
 }
 
 
@@ -145,47 +142,47 @@ CELERY_TIMEZONE = CONSTANT.CELERY_CONFIG.CELERY_TIMEZONE
 
 
 LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'formatters': {
-        'verbose': {
-            'format': '{levelname} {asctime} {module} {message}',
-            'style': '{',
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": {
+        "verbose": {
+            "format": "{levelname} {asctime} {module} {message}",
+            "style": "{",
         },
-        'simple': {
-            'format': '{levelname} {message}',
-            'style': '{',
+        "simple": {
+            "format": "{levelname} {message}",
+            "style": "{",
         },
     },
-    'handlers': {
-        'console': {
-            'class': 'logging.StreamHandler',
-            'formatter': 'simple',
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+            "formatter": "simple",
         },
-        'file': {
+        "file": {
             # 'class': 'logging.handlers.TimedRotatingFileHandler',
-            'class': 'app.util.middleware.custom_log_file_handler.CustomTimedRotatingFileHandler',
-            'filename': os.path.join(BASE_DIR, 'logs/django.log'),
-            'when': 'midnight',
-            'backupCount': 0,  # 로그 파일을 최대 30개까지 보관
-            'formatter': 'verbose',
+            "class": "app.util.middleware.custom_log_file_handler.CustomTimedRotatingFileHandler",
+            "filename": os.path.join(BASE_DIR, "logs/django.log"),
+            "when": "midnight",
+            "backupCount": 0,  # 로그 파일을 최대 30개까지 보관
+            "formatter": "verbose",
         },
     },
-    'loggers': {
-        'django': {
-            'handlers': ['console', 'file'],
-            'level': 'INFO',
-            'propagate': True,
+    "loggers": {
+        "django": {
+            "handlers": ["console", "file"],
+            "level": "INFO",
+            "propagate": True,
         },
-        'django.request': {
-            'handlers': ['console', 'file'],
-            'level': 'ERROR',
-            'propagate': False,
+        "django.request": {
+            "handlers": ["console", "file"],
+            "level": "ERROR",
+            "propagate": False,
         },
-        'django.db.backends': {
-            'handlers': ['console', 'file'],
-            'level': 'INFO',
-            'propagate': False,
+        "django.db.backends": {
+            "handlers": ["console", "file"],
+            "level": "INFO",
+            "propagate": False,
         },
     },
 }

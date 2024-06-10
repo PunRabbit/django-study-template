@@ -13,8 +13,12 @@ class CustomTimedRotatingFileHandler(TimedRotatingFileHandler):
             self.stream = None
 
         current_time = self.rolloverAt - self.interval
-        time_tuple = self.utc and time.gmtime(current_time) or time.localtime(current_time)
-        dfn = self.rotation_filename(self.baseFilename + "." + time.strftime("%Y-%m-%d", time_tuple))
+        time_tuple = (
+            self.utc and time.gmtime(current_time) or time.localtime(current_time)
+        )
+        dfn = self.rotation_filename(
+            self.baseFilename + "." + time.strftime("%Y-%m-%d", time_tuple)
+        )
 
         if not self.delay:
             self.stream = self._open()
