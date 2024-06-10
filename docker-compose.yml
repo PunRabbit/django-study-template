@@ -13,6 +13,8 @@ services:
       dockerfile: Dockerfile
     ports:
       - "8000:80"
+    environment:
+      - "TZ=Asia/Seoul"
     depends_on:
       - toss-server
     networks:
@@ -25,7 +27,7 @@ services:
       context: .
       dockerfile: ./resource/server/Dockerfile
       args:
-        COMMAND: "wait-for-it.sh toss-mariadb:3306 --timeout=60 --strict -- python manager.py runserver"
+        COMMAND: "/wait-for-it.sh toss-mariadb:3306 --timeout=60 --strict -- python manage.py runserver"
     networks:
       - toss-network
     deploy:

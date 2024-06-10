@@ -8,7 +8,7 @@ WORKDIR /src
 COPY ./req.txt .
 RUN pip install --no-cache-dir -r req.txt
 
-COPY . .
+COPY ./ ./
 
 # wait-for-it 스크립트 추가
 ADD https://raw.githubusercontent.com/vishnubob/wait-for-it/master/wait-for-it.sh /wait-for-it.sh
