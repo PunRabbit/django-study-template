@@ -19,6 +19,7 @@ RUN chmod +x /wait-for-it.sh
 FROM python:3.10-slim
 
 ENV TZ Asia/Seoul
+ENV PYTHONUNBUFFERED 1
 
 WORKDIR /src
 
