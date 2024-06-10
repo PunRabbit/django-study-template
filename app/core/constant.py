@@ -32,6 +32,15 @@ class Constant:
                 "PORT": "3306",
             }
         )
+        REDIS_CONFIG: dict = field(
+            default_factory=lambda: {
+                'BACKEND': 'django_redis.cache.RedisCache',
+                'LOCATION': 'redis://localhost:6379/1',
+                'OPTIONS': {
+                    'CLIENT_CLASS': 'django_redis.client.DefaultClient',
+                }
+            }
+        )
 
     CELERY_CONFIG: CeleryConfig = CeleryConfig()
     DATABASE_CONFIG: CustomDBConfig = CustomDBConfig()

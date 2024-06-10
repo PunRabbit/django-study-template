@@ -20,3 +20,4 @@ INFO 2024-06-10 20:14:22,176 autoreload Watching for file changes with StatReloa
 INFO 2024-06-10 20:17:32,265 autoreload /Users/PR/Downloads/django/toss-django-template/app/core/constant.py changed, reloading.
 INFO 2024-06-10 20:18:05,296 autoreload Watching for file changes with StatReloader
 INFO 2024-06-10 20:18:22,808 autoreload Watching for file changes with StatReloader
+INFO 2024-06-10 20:36:09,445 autoreload Watching for file changes with StatReloader
