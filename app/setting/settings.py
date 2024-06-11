@@ -51,6 +51,10 @@ INSTALLED_APPS = [
     "app.util",
 ]
 
+REST_FRAMEWORK = {
+    'EXCEPTION_HANDLER': 'app.util.exception.global_exception_handler.global_exception_handler',
+}
+
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
@@ -86,13 +90,9 @@ WSGI_APPLICATION = "app.setting.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DATABASES = {
-    "default": CONSTANT.DATABASE_CONFIG.MARIADB_CONFIG
-}
+DATABASES = {"default": CONSTANT.DATABASE_CONFIG.MARIADB_CONFIG}
 
-CACHES = {
-    'default': CONSTANT.DATABASE_CONFIG.REDIS_CONFIG
-}
+CACHES = {"default": CONSTANT.DATABASE_CONFIG.REDIS_CONFIG}
 
 
 # Password validation

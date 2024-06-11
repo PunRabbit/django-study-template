@@ -1,0 +1,23 @@
+INFO 2024-06-09 19:40:11,485 autoreload Watching for file changes with StatReloader
+INFO 2024-06-09 19:40:23,447 autoreload Watching for file changes with StatReloader
+INFO 2024-06-09 19:40:35,456 autoreload Watching for file changes with StatReloader
+INFO 2024-06-09 19:44:41,800 autoreload Watching for file changes with StatReloader
+INFO 2024-06-09 19:44:51,977 autoreload Watching for file changes with StatReloader
+WARNING 2024-06-09 19:44:58,870 basehttp "GET /api/class-snippets HTTP/1.1" 404 2237
+INFO 2024-06-09 20:07:27,635 autoreload Watching for file changes with StatReloader
+INFO 2024-06-09 23:43:29,205 autoreload Watching for file changes with StatReloader
+INFO 2024-06-09 23:43:53,237 autoreload Watching for file changes with StatReloader
+INFO 2024-06-09 23:54:34,391 autoreload Watching for file changes with StatReloader
+INFO 2024-06-09 23:54:53,672 autoreload Watching for file changes with StatReloader
+INFO 2024-06-09 23:55:01,751 autoreload Watching for file changes with StatReloader
+INFO 2024-06-09 23:55:11,798 autoreload Watching for file changes with StatReloader
+INFO 2024-06-10 12:54:35,378 autoreload Watching for file changes with StatReloader
+INFO 2024-06-10 13:18:13,621 autoreload Watching for file changes with StatReloader
+INFO 2024-06-10 13:26:39,161 autoreload Watching for file changes with StatReloader
+INFO 2024-06-10 19:48:31,147 autoreload Watching for file changes with StatReloader
+INFO 2024-06-10 20:14:12,998 autoreload Watching for file changes with StatReloader
+INFO 2024-06-10 20:14:22,176 autoreload Watching for file changes with StatReloader
+INFO 2024-06-10 20:17:32,265 autoreload /Users/PR/Downloads/django/toss-django-template/app/core/constant.py changed, reloading.
+INFO 2024-06-10 20:18:05,296 autoreload Watching for file changes with StatReloader
+INFO 2024-06-10 20:18:22,808 autoreload Watching for file changes with StatReloader
+INFO 2024-06-10 20:36:09,445 autoreload Watching for file changes with StatReloader
