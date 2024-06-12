@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     "app.logs",
     "app.setting",
     "app.util",
+    "app.apps.movie"
 ]
 
 REST_FRAMEWORK = {
@@ -84,7 +85,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "app.setting.wsgi.application"
+WSGI_APPLICATION = "app.setting.wsgi.domain"
 
 
 # Database
