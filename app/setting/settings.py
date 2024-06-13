@@ -165,9 +165,9 @@ LOGGING = {
         "file": {
             # 'class': 'logging.handlers.TimedRotatingFileHandler',
             "class": "app.util.middleware.custom_log_file_handler.CustomTimedRotatingFileHandler",
-            "filename": os.path.join(BASE_DIR, "logs/django.log"),
+            "filename": os.path.join(BASE_DIR, "logs/day.log"),
             "when": "midnight",
-            "backupCount": 0,  # 로그 파일을 최대 30개까지 보관
+            "backupCount": 0,
             "formatter": "verbose",
         },
     },
@@ -179,7 +179,7 @@ LOGGING = {
         },
         "django.request": {
             "handlers": ["console", "file"],
-            "level": "ERROR",
+            "level": "INFO",
             "propagate": False,
         },
         "django.db.backends": {

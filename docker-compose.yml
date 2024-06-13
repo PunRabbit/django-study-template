@@ -32,6 +32,8 @@ services:
       - toss-network
     deploy:
       replicas: 1
+    volumes:
+      - './app/logs:/src/app/logs'
     depends_on:
       - toss-mariadb
       - toss-mongo
