@@ -27,8 +27,8 @@ class Constant:
                 "ENGINE": "django.db.backends.mysql",
                 "NAME": "toss",
                 "USER": "root",
-                "PASSWORD": "toss",
-                "HOST": "toss-mariadb",
+                "PASSWORD": "deepnoid",
+                "HOST": "localhost",
                 "PORT": "3306",
             }
         )
