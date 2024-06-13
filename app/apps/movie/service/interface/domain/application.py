@@ -7,3 +7,7 @@ class MovieServiceInterface(metaclass=ABCMeta):
     @abstractmethod
     def find_movie(self, movie_id: int) -> MovieInfo:
         pass
+
+    @abstractmethod
+    def test_mock(self) -> bool:
+        pass

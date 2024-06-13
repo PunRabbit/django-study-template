@@ -32,6 +32,12 @@ class Constant:
                 "PORT": "3306",
             }
         )
+        TEST_DB_CONFIG: dict = field(
+            default_factory=lambda: {
+                'ENGINE': 'django.db.backends.sqlite3',
+                'NAME': ':memory:',
+            }
+        )
         REDIS_CONFIG: dict = field(
             default_factory=lambda: {
                 "BACKEND": "django_redis.cache.RedisCache",

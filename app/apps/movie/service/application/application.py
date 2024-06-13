@@ -13,4 +13,8 @@ class MovieApplication(MovieServiceInterface):
     def find_movie(self, movie_id: int) -> MovieInfo:
         pass
 
+    @override
+    def test_mock(self) -> bool:
+        return self.verify_module.verify_movie_name(name='test')
+
 

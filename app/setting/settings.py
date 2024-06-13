@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 import os
+import sys
 from pathlib import Path
 
 from app.setting.constant import CONSTANT
@@ -83,13 +84,13 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "app.setting.wsgi.domain"
+WSGI_APPLICATION = "app.setting.wsgi.application"
 
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DATABASES = {"default": CONSTANT.DATABASE_CONFIG.MARIADB_CONFIG}
+DATABASES = {"default": CONSTANT.DATABASE_CONFIG.MARIADB_CONFIG} if 'test' not in sys.argv else {"default": CONSTANT.DATABASE_CONFIG.TEST_DB_CONFIG}
 
 CACHES = {"default": CONSTANT.DATABASE_CONFIG.REDIS_CONFIG}
 

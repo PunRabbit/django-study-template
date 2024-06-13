@@ -1,0 +1,64 @@
+INFO 2024-06-13 10:48:18,753 autoreload Watching for file changes with StatReloader
+ERROR 2024-06-13 10:58:02,352 log Internal Server Error: /test/movies/23523/
+ERROR 2024-06-13 10:58:04,796 log Internal Server Error: /test/movies/23523/
+ERROR 2024-06-13 10:59:38,643 log Internal Server Error: /test/movies/23523/
+WARNING 2024-06-13 10:59:38,710 log Not Found: /static/rest_framework/css/bootstrap-tweaks.css
+WARNING 2024-06-13 10:59:38,710 log Not Found: /static/rest_framework/css/prettify.css
+WARNING 2024-06-13 10:59:38,722 log Not Found: /static/rest_framework/js/bootstrap.min.js
+WARNING 2024-06-13 10:59:38,723 log Not Found: /static/rest_framework/js/csrf.js
+WARNING 2024-06-13 10:59:38,735 log Not Found: /static/rest_framework/js/default.js
+WARNING 2024-06-13 10:59:38,736 log Not Found: /static/rest_framework/js/prettify-min.js
+WARNING 2024-06-13 10:59:38,742 log Not Found: /static/rest_framework/js/load-ajax-form.js
+WARNING 2024-06-13 10:59:38,768 log Not Found: /static/rest_framework/css/default.css
+WARNING 2024-06-13 10:59:38,776 log Not Found: /static/rest_framework/js/jquery-3.7.1.min.js
+WARNING 2024-06-13 10:59:38,776 log Not Found: /static/rest_framework/js/ajax-form.js
+WARNING 2024-06-13 10:59:38,777 log Not Found: /static/rest_framework/css/bootstrap.min.css
+ERROR 2024-06-13 10:59:51,234 log Internal Server Error: /test/movies/23523/
+WARNING 2024-06-13 10:59:51,316 log Not Found: /static/rest_framework/css/bootstrap.min.css
+WARNING 2024-06-13 10:59:51,319 log Not Found: /static/rest_framework/css/default.css
+WARNING 2024-06-13 10:59:51,319 log Not Found: /static/rest_framework/css/bootstrap-tweaks.css
+WARNING 2024-06-13 10:59:51,325 log Not Found: /static/rest_framework/css/prettify.css
+WARNING 2024-06-13 10:59:51,334 log Not Found: /static/rest_framework/js/csrf.js
+WARNING 2024-06-13 10:59:51,337 log Not Found: /static/rest_framework/js/bootstrap.min.js
+WARNING 2024-06-13 10:59:51,344 log Not Found: /static/rest_framework/js/default.js
+WARNING 2024-06-13 10:59:51,345 log Not Found: /static/rest_framework/js/prettify-min.js
+WARNING 2024-06-13 10:59:51,352 log Not Found: /static/rest_framework/js/load-ajax-form.js
+WARNING 2024-06-13 10:59:51,352 log Not Found: /static/rest_framework/js/ajax-form.js
+WARNING 2024-06-13 10:59:51,355 log Not Found: /static/rest_framework/js/jquery-3.7.1.min.js
+ERROR 2024-06-13 11:01:32,142 log Internal Server Error: /test/movies/23523/
+WARNING 2024-06-13 11:01:32,183 log Not Found: /static/rest_framework/css/bootstrap.min.css
+WARNING 2024-06-13 11:01:32,185 log Not Found: /static/rest_framework/css/default.css
+WARNING 2024-06-13 11:01:32,188 log Not Found: /static/rest_framework/css/bootstrap-tweaks.css
+WARNING 2024-06-13 11:01:32,192 log Not Found: /static/rest_framework/css/prettify.css
+WARNING 2024-06-13 11:01:32,194 log Not Found: /static/rest_framework/js/ajax-form.js
+WARNING 2024-06-13 11:01:32,202 log Not Found: /static/rest_framework/js/default.js
+WARNING 2024-06-13 11:01:32,201 log Not Found: /static/rest_framework/js/csrf.js
+WARNING 2024-06-13 11:01:32,202 log Not Found: /static/rest_framework/js/bootstrap.min.js
+WARNING 2024-06-13 11:01:32,201 log Not Found: /static/rest_framework/js/jquery-3.7.1.min.js
+WARNING 2024-06-13 11:01:32,206 log Not Found: /static/rest_framework/js/prettify-min.js
+WARNING 2024-06-13 11:01:32,211 log Not Found: /static/rest_framework/js/load-ajax-form.js
+ERROR 2024-06-13 11:01:58,278 log Internal Server Error: /test/movies/23523/
+WARNING 2024-06-13 11:01:58,297 log Not Found: /static/rest_framework/js/ajax-form.js
+WARNING 2024-06-13 11:01:58,297 log Not Found: /static/rest_framework/js/jquery-3.7.1.min.js
+WARNING 2024-06-13 11:01:58,304 log Not Found: /static/rest_framework/js/bootstrap.min.js
+WARNING 2024-06-13 11:01:58,304 log Not Found: /static/rest_framework/js/csrf.js
+WARNING 2024-06-13 11:01:58,308 log Not Found: /static/rest_framework/css/bootstrap.min.css
+WARNING 2024-06-13 11:01:58,308 log Not Found: /static/rest_framework/css/bootstrap-tweaks.css
+WARNING 2024-06-13 11:01:58,308 log Not Found: /static/rest_framework/css/default.css
+WARNING 2024-06-13 11:01:58,309 log Not Found: /static/rest_framework/css/prettify.css
+WARNING 2024-06-13 11:01:58,311 log Not Found: /static/rest_framework/js/prettify-min.js
+WARNING 2024-06-13 11:01:58,311 log Not Found: /static/rest_framework/js/default.js
+WARNING 2024-06-13 11:01:58,316 log Not Found: /static/rest_framework/js/load-ajax-form.js
+ERROR 2024-06-13 11:02:01,185 log Internal Server Error: /test/movies/23523/
+ERROR 2024-06-13 11:02:03,457 log Internal Server Error: /test/movies/23523/
+WARNING 2024-06-13 11:02:03,483 log Not Found: /static/rest_framework/css/bootstrap.min.css
+WARNING 2024-06-13 11:02:03,487 log Not Found: /static/rest_framework/js/jquery-3.7.1.min.js
+WARNING 2024-06-13 11:02:03,491 log Not Found: /static/rest_framework/css/prettify.css
+WARNING 2024-06-13 11:02:03,492 log Not Found: /static/rest_framework/js/csrf.js
+WARNING 2024-06-13 11:02:03,493 log Not Found: /static/rest_framework/css/bootstrap-tweaks.css
+WARNING 2024-06-13 11:02:03,494 log Not Found: /static/rest_framework/js/ajax-form.js
+WARNING 2024-06-13 11:02:03,498 log Not Found: /static/rest_framework/js/bootstrap.min.js
+WARNING 2024-06-13 11:02:03,498 log Not Found: /static/rest_framework/css/default.css
+WARNING 2024-06-13 11:02:03,506 log Not Found: /static/rest_framework/js/default.js
+WARNING 2024-06-13 11:02:03,510 log Not Found: /static/rest_framework/js/prettify-min.js
+WARNING 2024-06-13 11:02:03,511 log Not Found: /static/rest_framework/js/load-ajax-form.js
