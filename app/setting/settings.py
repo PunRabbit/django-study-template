@@ -44,8 +44,6 @@ INSTALLED_APPS = [
     "django_celery_results",
     "django_celery_beat",
     "app.apps.user",
-    "app.container",
-    "app.core",
     "app.logs",
     "app.setting",
     "app.util",
