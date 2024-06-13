@@ -1,7 +1,7 @@
 import os
 import sys
 
-from app.core.constant import CONSTANT
+from app.setting.constant import CONSTANT
 
 
 def main():
